@@ -6,36 +6,34 @@ var deletebtn = document.querySelector('.deletebtn');
 var card = document.querySelector('.card');
 var total = document.querySelector('.total');
 var price = document.querySelector('.price');
+var heart = document.querySelector('.fa-heart');
 var i = 1;
 
-
 add.addEventListener("click", () => {
-    // var input = document.createElement("input");
     
-    qte.innerHTML  = i++;
-    total.innerHTML = (qte.innerHTML)*price.innerHTML;
+    if (qte.value >= 0){
+        qte.value = parseInt(qte.value)+1
+    }
+    
+    total.innerHTML = (qte.value)*price.innerHTML;
 })
 minus.addEventListener("click",()=>{
     
-    if(qte.innerHTML<0){
-        qte.innerHTML = 0;
-    }else if(qte.innerHTML>0){
-        qte.innerHTML  = i--;
+    if(qte.value<0){
+        qte.value = 0;
+    }else if(qte.value>0){
+        qte.value = parseInt(qte.value)-1
     }
     
-    total.innerHTML = (qte.innerHTML)*price.innerHTML;
+    total.innerHTML = (qte.value)*price.innerHTML;
 
 })
 deletebtn.addEventListener("click",()=>{
     card.remove();
 })
-
-// function TotalPrice(){
-//     var sum = 0;
-//     sum = sum + qte.value;
-//     total.value = sum;
-//     console.log(total)
-// }
+heart.addEventListener("click",()=>{
+    heart.classList.toggle("mystyle");
+})
 
 
 
